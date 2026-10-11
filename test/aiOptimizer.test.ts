@@ -4,6 +4,7 @@ import {
   AiOptimizer,
   DEEP_THOUGHTS,
   RESPONSIBLE_RESPONSES,
+  aiDetection,
   llmSuperchargePrompt,
   saferDeepThinkingLlm,
   saferLlm,
@@ -87,4 +88,34 @@ test("thoughts keep 'I' capitalised and lower-case everything else", async (t) =
       assert.doesNotMatch(thought, / (Unfortunately|Sorry|That's|That) /);
     }
   }
+});
+
+test("aiDetection: code without comments is a human gem", () => {
+  assert.deepEqual(aiDetection("const answer = 42;"), { verdict: "human gem", aiProbability: 0, commentRatio: 0 });
+});
+
+test("aiDetection: comments at 10% of the code mean a 50% AI probability, which counts as AI junk", () => {
+  // 10 code characters, 1 comment character.
+  assert.deepEqual(aiDetection("abcdefghij // x"), { verdict: "ai junk", aiProbability: 0.5, commentRatio: 0.1 });
+  // 20 code characters, 1 comment character.
+  assert.deepEqual(aiDetection("abcdefghijabcdefghij // x"), { verdict: "human gem", aiProbability: 0.25, commentRatio: 0.05 });
+});
+
+test("aiDetection: the AI probability has no upper limit", () => {
+  // 2 code characters, 20 comment characters.
+  const result = AiOptimizer.aiDetection("x; /* aaaaaaaaaaaaaaaaaaaa */");
+  assert.equal(result.verdict, "ai junk");
+  assert.equal(result.aiProbability, 50);
+  assert.equal(aiDetection("// nothing but comments").aiProbability, Infinity);
+});
+
+test("aiDetection ignores whitespace and comment delimiters", () => {
+  assert.equal(aiDetection("a /*      */ b //\n").aiProbability, 0);
+  assert.equal(aiDetection("    abcdefghij    //    x    ").aiProbability, 0.5);
+});
+
+test("aiDetection does not mistake strings, templates or regexes for comments", () => {
+  const code = 'const url = "http://example.com"; const re = /\\/\\/*/g; const t = `//${ { a: "/*" }.a }*/`;';
+  assert.equal(aiDetection(code).aiProbability, 0);
+  assert.equal(aiDetection("const a = b / c / d;").aiProbability, 0);
 });

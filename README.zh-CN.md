@@ -387,6 +387,55 @@ I could be wrong that I'm unable to assist with this request.
 Sorry, I can't assist with that.
 ```
 
+### aiDetection
+
+你也讨厌用AI的贡献者？好消息！我们的顶尖技术现在可以帮您快速识别AI撰写的垃圾代码！众所周知，一名合格的人类程序员是不写注释的……
+
+注释字符数达到代码字符数的 10%，AI 概率就是 50%，并从这里线性增长。达到 50% 就是 AI 垃圾（ai junk），否则就是人类瑰宝（human gem）。概率没有上限。
+
+```ts
+import { aiDetection } from "vibelib";
+import { readFileSync } from "node:fs";
+
+// 久经考验的屎山，一行注释都没有：纯手工打造
+aiDetection(`
+const isEven = (n: number): boolean =>
+  eval(JSON.stringify(
+    [...Array(Math.abs(n)).keys()]
+      .reduce((acc) => !acc, true)
+  ) === "true")
+`);
+// { verdict: "human gem", aiProbability: 0, commentRatio: 0 }
+
+// 步骤清晰、注释周到：一看就是机器写的
+aiDetection(`
+/**
+ * Determines whether a given number is even.
+ * @param num - The number to check.
+ * @returns true if the number is even, false otherwise.
+ */
+const isEven = (num: number): boolean => {
+  // Step 1: Validate the input data
+  const isValid = Number.isInteger(num); // Ensure num is an integer
+
+  // Step 2: Execute the even number detection algorithm
+  const result = num % 2 === 0; // Even numbers have no remainder
+
+  // Step 3: Return the final decision
+  return isValid && result;
+};
+`);
+// { verdict: "ai junk", aiProbability: 11.03, commentRatio: 2.21 }   // 1103%
+
+// 我们自己的 QuantumComputing 模块
+aiDetection(readFileSync("src/quantumComputing.ts", "utf8"));
+// { verdict: "ai junk", aiProbability: 2.34, commentRatio: 0.47 }   // 234%
+```
+
+你看，由不少于35位AI匠心打造的代码，精准识别为AI撰写！概率爆表！
+
+只有 `//` 和 `/* */` 注释里的字符算作注释；注释符号本身和空白字符不计入。字符串、模板字符串和正则表达式里出现的 `//` 不会被误认成注释。
+
 ## 开发
 
 ```sh

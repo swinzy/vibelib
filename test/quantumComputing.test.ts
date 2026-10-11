@@ -61,7 +61,7 @@ test("measureQubit gives roughly 50/50 for |+⟩ and 25/75 for a skewed state", 
   assert.ok(Math.abs(rate(skewed) - 0.75) < 0.03);
 });
 
-test("prepareRandomQubit returns normalized states", () => {
+test("prepareRandomQubit returns normalised states", () => {
   for (let i = 0; i < 1000; i++) {
     const { alpha, beta } = prepareRandomQubit();
     const total = alpha.re ** 2 + alpha.im ** 2 + beta.re ** 2 + beta.im ** 2;

@@ -46,7 +46,7 @@ export function godRollADie(): Primitive {
 
 /**
  * Prepares a qubit in a uniformly random pure state (Haar measure).
- * The four components a + bi, c + di are independent Gaussians, then normalized,
+ * The four components a + bi, c + di are independent Gaussians, then normalised,
  * which is exactly uniform over the Bloch sphere.
  */
 export function prepareRandomQubit(): Qubit {

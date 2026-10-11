@@ -50,6 +50,8 @@ export {
   llmSuperchargePrompt,
   saferLlm,
   saferDeepThinkingLlm,
+  aiDetection,
   RESPONSIBLE_RESPONSES,
   DEEP_THOUGHTS,
+  type AiDetectionResult,
 } from "./aiOptimizer.ts";

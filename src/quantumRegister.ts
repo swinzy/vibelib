@@ -40,7 +40,7 @@ export class QuantumRegister {
     this.re[0] = 1;
   }
 
-  /** Creates a register from explicit amplitudes (normalized for you). Length must be a power of two. */
+  /** Creates a register from explicit amplitudes (normalised for you). Length must be a power of two. */
   static fromAmplitudes(amplitudes: readonly Complex[]): QuantumRegister {
     const size = Math.log2(amplitudes.length);
     if (!Number.isInteger(size)) throw new RangeError("vibelib: amplitude count must be a power of two");

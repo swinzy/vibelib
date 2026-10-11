@@ -30,7 +30,7 @@ test("H + CNOT makes a Bell pair whose measurements always agree", () => {
   }
 });
 
-test("measuring collapses and renormalizes", () => {
+test("measuring collapses and renormalises", () => {
   const r = new QuantumRegister(2).hAll();
   const q0 = r.measure(0);
   const total = [0, 1, 2, 3].reduce((s, i) => s + r.probability(i), 0);

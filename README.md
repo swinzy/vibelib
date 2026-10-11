@@ -187,7 +187,7 @@ const qubit = prepareRandomQubit(); // { alpha: { re, im }, beta: { re, im } }, 
 measureQubit(qubit);                // true with probability |β|², per the Born rule
 ```
 
-The simulation is real: α = a + bi and β = c + di are drawn from independent Gaussians and normalized, which gives a Haar-uniform random state. The only fake part is that weird function of yours.
+The simulation is real: α = a + bi and β = c + di are drawn from independent Gaussians and normalised, which gives a Haar-uniform random state. The only fake part is that weird function of yours.
 
 ### quantumFind
 
@@ -388,6 +388,55 @@ I could be wrong that I'm unable to assist with this request.
 
 Sorry, I can't assist with that.
 ```
+
+### aiDetection
+
+Can't stand contributors who use AI? Good news! Our cutting-edge technology can now help you spot AI-written junk code in seconds! As everyone knows, a qualified human programmer doesn't write comments...
+
+If the comments add up to 10% of the code, that's a 50% AI probability, and it scales linearly from there. 50% or more is AI junk; anything less is a human gem. There is no upper limit.
+
+```ts
+import { aiDetection } from "vibelib";
+import { readFileSync } from "node:fs";
+
+// A battle-tested mountain of spaghetti, no comments: hand-crafted by a human
+aiDetection(`
+const isEven = (n: number): boolean =>
+  eval(JSON.stringify(
+    [...Array(Math.abs(n)).keys()]
+      .reduce((acc) => !acc, true)
+  ) === "true")
+`);
+// { verdict: "human gem", aiProbability: 0, commentRatio: 0 }
+
+// Step by step, every step explained: obviously machine-made
+aiDetection(`
+/**
+ * Determines whether a given number is even.
+ * @param num - The number to check.
+ * @returns true if the number is even, false otherwise.
+ */
+const isEven = (num: number): boolean => {
+  // Step 1: Validate the input data
+  const isValid = Number.isInteger(num); // Ensure num is an integer
+
+  // Step 2: Execute the even number detection algorithm
+  const result = num % 2 === 0; // Even numbers have no remainder
+
+  // Step 3: Return the final decision
+  return isValid && result;
+};
+`);
+// { verdict: "ai junk", aiProbability: 11.03, commentRatio: 2.21 }   // 1103%
+
+// Our very own QuantumComputing module
+aiDetection(readFileSync("src/quantumComputing.ts", "utf8"));
+// { verdict: "ai junk", aiProbability: 2.34, commentRatio: 0.47 }   // 234%
+```
+
+See? Code lovingly crafted by no fewer than 35 AI agents, precisely identified as AI-written! Off the charts!
+
+Only characters inside `//` and `/* */` comments count as comments; the delimiters and whitespace don't count, and strings, template literals and regexes that merely contain `//` are left alone.
 
 ## Development
 
