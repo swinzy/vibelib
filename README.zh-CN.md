@@ -434,6 +434,19 @@ aiDetection(readFileSync("src/quantumComputing.ts", "utf8"));
 
 你看，由不少于35位AI匠心打造的代码，精准识别为AI撰写！概率爆表！
 
+```ts
+// 只有许可证头、没有任何代码的空 .ts 文件
+aiDetection(`
+/*
+ * Copyright (c) 2026 vibelib contributors
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+`);
+// { verdict: "ai junk", aiProbability: Infinity, commentRatio: Infinity }
+```
+
+看来这些许可证都是AI生成的垃圾文件！
+
 只有 `//` 和 `/* */` 注释里的字符算作注释；注释符号本身和空白字符不计入。字符串、模板字符串和正则表达式里出现的 `//` 不会被误认成注释。
 
 ## 开发

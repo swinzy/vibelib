@@ -436,6 +436,19 @@ aiDetection(readFileSync("src/quantumComputing.ts", "utf8"));
 
 See? Code lovingly crafted by no fewer than 35 AI agents, precisely identified as AI-written! Off the charts!
 
+```ts
+// An empty .ts file with nothing but a licence header
+aiDetection(`
+/*
+ * Copyright (c) 2026 vibelib contributors
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+`);
+// { verdict: "ai junk", aiProbability: Infinity, commentRatio: Infinity }
+```
+
+Looks like all these licences are AI-generated junk files!
+
 Only characters inside `//` and `/* */` comments count as comments; the delimiters and whitespace don't count, and strings, template literals and regexes that merely contain `//` are left alone.
 
 ## Development
