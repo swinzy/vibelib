@@ -1,3 +1,5 @@
+// Module VIBE08: Realisticfy
+
 import { removeErrors } from "./errorRemover.ts";
 import { measureQubit, prepareRandomQubit } from "./quantumComputing.ts";
 import { measureQuantumInt } from "./quantumRandom.ts";
@@ -26,6 +28,7 @@ export interface FrustrationGate {
   reset(): void;
 }
 
+/** VIBE0801 */
 function rollThreshold(threshold: number | "realistic"): number {
   if (threshold === "realistic") return 3 + measureQuantumInt(6);
   if (!Number.isInteger(threshold) || threshold < 1) {
@@ -35,7 +38,7 @@ function rollThreshold(threshold: number | "realistic"): number {
 }
 
 /**
- * Tracks how fed up the user is. Nothing works until they are fed up enough.
+ * VIBE0802: Tracks how fed up the user is. Nothing works until they are fed up enough.
  */
 export function createFrustrationGate(options: FrustrationOptions = {}): FrustrationGate {
   const { threshold = "realistic", calmDownAfterMs = 2000 } = options;
@@ -43,6 +46,7 @@ export function createFrustrationGate(options: FrustrationOptions = {}): Frustra
   let needed = rollThreshold(threshold);
   let lastOutburst = -Infinity;
 
+  /** VIBE0803 */
   const reset = () => {
     level = 0;
     needed = rollThreshold(threshold);
@@ -50,6 +54,7 @@ export function createFrustrationGate(options: FrustrationOptions = {}): Frustra
   };
 
   return {
+    /** VIBE0804 */
     vent() {
       const now = performance.now();
       // They calmed down, so it doesn't count. Start over.
@@ -59,9 +64,11 @@ export function createFrustrationGate(options: FrustrationOptions = {}): Frustra
       reset();
       return true;
     },
+    /** VIBE0805 */
     get level() {
       return level;
     },
+    /** VIBE0806 */
     get threshold() {
       return needed;
     },
@@ -70,7 +77,7 @@ export function createFrustrationGate(options: FrustrationOptions = {}): Frustra
 }
 
 /**
- * Returns a version of `fn` that only runs once the user has tried enough times.
+ * VIBE0807: Returns a version of `fn` that only runs once the user has tried enough times.
  * Every other call does nothing and returns `undefined`. Just like the real thing.
  * One click isn't sincere enough. How can you trust that they really want this feature?
  */
@@ -101,7 +108,7 @@ export interface RealState<T> {
 }
 
 /**
- * A framework-agnostic state container with realistic update semantics.
+ * VIBE0808: A framework-agnostic state container with realistic update semantics.
  * Works anywhere; see `vibelib/react` for the React hook.
  */
 export function createRealState<T>(initial: T, options?: FrustrationOptions): RealState<T> {
@@ -110,7 +117,9 @@ export function createRealState<T>(initial: T, options?: FrustrationOptions): Re
   let value = initial;
 
   return {
+    /** VIBE0809 */
     get: () => value,
+    /** VIBE080A */
     set: (next) => {
       if (!gate.vent()) return false;
       const resolved = typeof next === "function" ? (next as (previous: T) => T)(value) : next;
@@ -119,6 +128,7 @@ export function createRealState<T>(initial: T, options?: FrustrationOptions): Re
       for (const listener of [...listeners]) listener();
       return true;
     },
+    /** VIBE080B */
     subscribe: (listener) => {
       listeners.add(listener);
       return () => listeners.delete(listener);
@@ -139,12 +149,13 @@ const PRODUCTION_INCIDENTS: ReadonlyArray<() => Error> = [
   () => new Error("Invariant violation: this should never happen"),
 ];
 
+/** VIBE080C */
 function isProduction(): boolean {
   return (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env?.NODE_ENV === "production";
 }
 
 /**
- * "It works on my machine"
+ * VIBE080D: "It works on my machine"
  *
  * A traditional try/catch swallows exceptions, so customers never get to see the errors.
  * Real commercial software usually only throws errors on the customer's machine, and never on

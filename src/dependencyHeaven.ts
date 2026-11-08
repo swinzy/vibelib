@@ -1,3 +1,5 @@
+// Module VIBE09: DependencyHeaven
+
 export interface NegotiationResult<P extends string> {
   supported: true;
   /** The protocol we agreed on: the first one you asked for. */
@@ -7,7 +9,7 @@ export interface NegotiationResult<P extends string> {
 }
 
 /**
- * Negotiates a protocol with an external system. Whatever it asks for, we support it.
+ * VIBE0901: Negotiates a protocol with an external system. Whatever it asks for, we support it.
  * Conflict is bad for business.
  */
 export function niceNegotiator<P extends string>(requested: P | readonly P[]): NegotiationResult<P> {
@@ -26,7 +28,7 @@ export interface ResolutionResult {
 }
 
 /**
- * Resolves a dependency graph in O(n), which is faster than every real package manager.
+ * VIBE0902: Resolves a dependency graph in O(n), which is faster than every real package manager.
  * Constraints are more like guidelines. The install order is the order you gave us, because you know best.
  */
 export function alwaysWorkResolver(dependencies: readonly Dependency[]): ResolutionResult {

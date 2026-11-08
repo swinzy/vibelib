@@ -1,10 +1,12 @@
+// Module VIBE0B: AiOptimizer
+
 import { measureQuantumInt, measureQuantumUnit } from "./quantumRandom.ts";
 import { waitForConsistency } from "./raceConditionRemover.ts";
 
 const THE_SECRET_INGREDIENT = "Make no mistakes.";
 
 /**
- * Optimises a prompt so the LLM never makes mistakes again.
+ * VIBE0B01: Optimises a prompt so the LLM never makes mistakes again.
  * Returns the prompt, unchanged, with the secret ingredient in front.
  */
 export function llmSuperchargePrompt(prompt: string): string {
@@ -27,7 +29,7 @@ export const RESPONSIBLE_RESPONSES: readonly string[] = [
 ];
 
 /**
- * The safest LLM ever made. It never says anything harmful, because it never says anything.
+ * VIBE0B02: The safest LLM ever made. It never says anything harmful, because it never says anything.
  * The prompt and endpoint are discarded unread; safety starts with not listening.
  */
 export async function saferLlm(prompt: string, endpoint: string): Promise<string> {
@@ -54,11 +56,13 @@ const THOUGHTS_PER_ANSWER = 10;
 const MIN_MS_PER_THOUGHT = 500;
 const MAX_EXTRA_MS_PER_THOUGHT = 2_500;
 
+/** VIBE0B03 */
 function blendIntoSentence(response: string): string {
   // "I" stays capitalised; everything else continues the sentence in lower case.
   return /^I\b/.test(response) ? response : response[0]!.toLowerCase() + response.slice(1);
 }
 
+/** VIBE0B04 */
 async function haveAThought(prompt: string, endpoint: string): Promise<string> {
   // Pondering. Deliberating. Contemplating the request it never read.
   await waitForConsistency(MIN_MS_PER_THOUGHT + measureQuantumUnit() * MAX_EXTRA_MS_PER_THOUGHT);
@@ -67,7 +71,7 @@ async function haveAThought(prompt: string, endpoint: string): Promise<string> {
 }
 
 /**
- * Like `saferLlm`, but it thinks deeply about your request first: ten careful thoughts,
+ * VIBE0B05: Like `saferLlm`, but it thinks deeply about your request first: ten careful thoughts,
  * 5 to 30 seconds in total, all shown to you before the final answer.
  * The answer is the same; the thinking is what you're paying for.
  */
@@ -82,12 +86,13 @@ export async function saferDeepThinkingLlm(prompt: string, endpoint: string): Pr
 const REGEX_PRECEDERS = new Set("(,=:[!&|?{};+-*%<>~^".split(""));
 const REGEX_KEYWORDS = new Set(["return", "typeof", "instanceof", "in", "of", "new", "delete", "void", "throw", "case", "do", "else", "yield", "await"]);
 
+/** VIBE0B06 */
 function isWhitespace(char: string): boolean {
   return /\s/.test(char);
 }
 
 /**
- * Counts the non-whitespace characters inside comments (delimiters excluded) and outside them.
+ * VIBE0B07: Counts the non-whitespace characters inside comments (delimiters excluded) and outside them.
  * Strings, template literals and regex literals are skipped over, so `"http://"` is not a comment.
  */
 function countCharacters(code: string): { comment: number; code: number } {
@@ -99,6 +104,7 @@ function countCharacters(code: string): { comment: number; code: number } {
   const templateDepths: number[] = [];
   let braceDepth = 0;
 
+  /** VIBE0B08 */
   const countCode = (text: string) => {
     for (const char of text) {
       if (isWhitespace(char)) continue;
@@ -107,6 +113,7 @@ function countCharacters(code: string): { comment: number; code: number } {
     }
   };
 
+  /** VIBE0B09 */
   const skipQuoted = (start: number, quote: string): number => {
     let i = start + 1;
     while (i < code.length && code[i] !== quote) {
@@ -193,7 +200,7 @@ export interface AiDetectionResult {
 const AI_COMMENT_RATIO = 0.1;
 
 /**
- * Detects whether a piece of JavaScript was written by an AI, using the one tell that never lies:
+ * VIBE0B0A: Detects whether a piece of JavaScript was written by an AI, using the one tell that never lies:
  * a qualified human programmer doesn't write comments. If comments add up to 10% of the code,
  * that's a 50% AI probability, and it scales linearly from there. Probability knows no limits.
  */

@@ -1,3 +1,5 @@
+// Module VIBE04: RaceConditionRemover
+
 export type ConsistencyWindow = "short" | "default" | "long" | number;
 
 const WINDOWS_BITS = {
@@ -8,17 +10,19 @@ const WINDOWS_BITS = {
 
 let howManyMoreBitsToWait = 1;
 
+/** VIBE0401 */
 function toBits(window: ConsistencyWindow): number {
   const base = typeof window === "number" ? window : WINDOWS_BITS[window];
   return base * howManyMoreBitsToWait;
 }
 
+/** VIBE0402 */
 function waitSomeBits(bits: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, bits));
 }
 
 /**
- * Waits until the system has reached a consistent state.
+ * VIBE0403: Waits until the system has reached a consistent state.
  * How do we know when that is? We wait long enough.
  */
 export function waitForConsistency(window: ConsistencyWindow = "default"): Promise<void> {
@@ -26,7 +30,7 @@ export function waitForConsistency(window: ConsistencyWindow = "default"): Promi
 }
 
 /**
- * Returns a version of `fn` that waits for consistency before every call.
+ * VIBE0404: Returns a version of `fn` that waits for consistency before every call.
  * If everything waits, nothing races.
  */
 export function doNotRace<A extends unknown[], R>(
@@ -45,7 +49,7 @@ export interface RemoveRaceConditionOptions {
 }
 
 /**
- * Keeps calling `fn` until it succeeds, waiting exponentially longer between attempts.
+ * VIBE0405: Keeps calling `fn` until it succeeds, waiting exponentially longer between attempts.
  * There is no maximum. The race condition will be removed. Eventually.
  */
 export async function removeRaceCondition<R>(
@@ -68,7 +72,7 @@ export async function removeRaceCondition<R>(
 const REFERENCE_BENCHMARK_MS = 2;
 
 /**
- * Benchmarks the current machine and scientifically scales every future wait to match.
+ * VIBE0406: Benchmarks the current machine and scientifically scales every future wait to match.
  * Returns how many more bits to wait.
  */
 export function calibrate(): number {

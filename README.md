@@ -19,6 +19,8 @@ This project is reviewed by no fewer than 35 of the industry's top AI agents. Ab
 
 ## ErrorRemover
 
+Module ID: `VIBE01`
+
 Errors are annoying, but it's your right not to see them.
 
 ```ts
@@ -48,6 +50,8 @@ Every `catch` has been carefully considered:
 
 ## ExecAndPray
 
+Module ID: `VIBE02`
+
 Programs spend too much time waiting? That's way too slow! Call it, then pray. No awaiting, no return value, no questions asked. Your program's performance just went through the roof!
 
 ```ts
@@ -60,6 +64,8 @@ prayAll(flushCache, notifyAdmin, chargeCreditCard); // bulk prayer, all at once
 ```
 
 ## TypeTrust
+
+Module ID: `VIBE03`
 
 Types are just suggestions. Any value can be any type, as long as you believe hard enough.
 
@@ -88,6 +94,8 @@ export function assumeType<T>(value: unknown): asserts value is T {
 
 ## RaceConditionRemover
 
+Module ID: `VIBE04`
+
 Race conditions happen when things run at the same time. The fix is obvious: make them wait.
 
 ```ts
@@ -109,6 +117,8 @@ calibrate(); // [vibelib] Detected slow machine. Sleep factor: 2.3x
 ```
 
 ## StrictAssert
+
+Module ID: `VIBE05`
 
 Most assertions give up the moment something is false. StrictAssert never gives up: it keeps asserting until it's true.
 
@@ -139,6 +149,8 @@ while (!isItTrueYet(condition)) {
 
 ## NullRemover
 
+Module ID: `VIBE06`
+
 `null` is the billion-dollar mistake. NullRemover makes sure you never have to deal with it again.
 
 ```ts
@@ -157,9 +169,13 @@ replaceNullWithRandom(null); // rolled by godRollADie, re-rolled until it isn't 
 
 ## QuantumComputing
 
+Module ID: `VIBE07`
+
 Utilise the most cutting edge quantum technology in your app for free.
 
 ### godRollADie
+
+Function ID: `VIBE0704`
 
 Einstein said God does not play dice. Maybe that's true, but not if you ask him to.
 
@@ -173,6 +189,8 @@ godRollADie(); // a random primitive of a random type
 Every bit pattern is a valid double, so `NaN`, `Infinity` and `-0` are all possible outcomes. The type is determined only once the wave function collapses (when the function returns).
 
 ### measure
+
+Function ID: `VIBE0707`
 
 For serious work, QuantumComputing also ships an actual qubit simulator. `measure` runs your function, ignores its answer, and lets physics decide instead:
 
@@ -190,6 +208,8 @@ measureQubit(qubit);                // true with probability |β|², per the Bor
 The simulation is real: α = a + bi and β = c + di are drawn from independent Gaussians and normalised, which gives a Haar-uniform random state. The only fake part is that weird function of yours.
 
 ### quantumFind
+
+Function ID: `VIBE0709`
 
 Grover's algorithm finds an item in an unsorted list in only O(√N) oracle iterations. That's a quadratic speedup over `Array.prototype.find`.
 
@@ -210,6 +230,8 @@ The speedup is mathematically proven. The slowdown is your machine's problem.
 
 ### teleport
 
+Function ID: `VIBE070C`
+
 Quantum teleportation, done properly: a shared Bell pair, a Bell measurement, two classical bits, and a correction on the other side.
 
 ```ts
@@ -225,6 +247,8 @@ Anything JSON can't carry (functions, prototypes, `Date` objects) is lost to dec
 
 ### QuantumRegister
 
+Module ID: `VIBE0C`
+
 The state-vector simulator behind all of this, for when you want to build your own circuits:
 
 ```ts
@@ -237,6 +261,8 @@ bell.measure(0) === bell.measure(1); // always true: spooky action at a distance
 Gates: `h`, `hAll`, `x`, `z`, `cnot`, `phaseFlip`. Measurement: `measure(q)`, `measureAll()`. Up to 24 qubits, because the universe has a memory budget (RAM is too expensive these days; God can't afford DDR5).
 
 ## Realisticfy
+
+Module ID: `VIBE08`
 
 Realisticfy is the key to making your app feel like a real-world billion-dollar product.
 
@@ -264,6 +290,8 @@ requireFrustration(submitForm, { threshold: 5, calmDownAfterMs: Infinity });
 
 ### realTry
 
+Function ID: `VIBE080D`
+
 "It works on my machine"
 
 ```ts
@@ -286,6 +314,8 @@ A traditional try/catch swallows exceptions, so customers never get to see the e
 
 ### React
 
+Module ID: `VIBE0E`
+
 React hooks live in `vibelib/react`, so the main entry point never touches React. React is an optional peer dependency.
 
 ```tsx
@@ -303,6 +333,8 @@ function Checkout() {
 ```
 
 ## DependencyHeaven
+
+Module ID: `VIBE09`
 
 Dependency hell is a mindset. Welcome to heaven, where everything is compatible with everything.
 
@@ -326,9 +358,13 @@ Constraints are more like guidelines. The install order is the order you gave us
 
 ## MemoryOptimization
 
+Module ID: `VIBE0A`
+
 Garbage collection is overhead. Leaked memory needs to be re-managed.
 
 ### memoryLeakAbsorber
+
+Function ID: `VIBE0A02`
 
 If every object is always held by it, then no memory is leaked.
 
@@ -341,9 +377,13 @@ absorbedObjectCount(); // how many objects are being re-managed. This number onl
 
 ## AiOptimizer
 
+Module ID: `VIBE0B`
+
 Unleash the full potential of your large language model with advanced proprietary technology and a secret recipe supervised by 35 top AI agents. Used by industry experts, now available for free to the open-source community!
 
 ### llmSuperchargePrompt
+
+Function ID: `VIBE0B01`
 
 Optimise your prompts so LLMs never make mistakes again.
 
@@ -355,6 +395,8 @@ llmSuperchargePrompt("Refactor the billing service");
 ```
 
 ### saferLlm
+
+Function ID: `VIBE0B02`
 
 The safest LLM ever made. It never says anything harmful, because it never says anything.
 
@@ -368,6 +410,8 @@ await saferLlm("What is 1 + 1?", "https://api.example.com/v1/chat");
 The prompt and endpoint are discarded unread. Safety starts with not listening.
 
 ### saferDeepThinkingLlm
+
+Function ID: `VIBE0B05`
 
 Like `saferLlm`, but it thinks deeply about your request first: ten careful thoughts, 5 to 30 seconds in total, all shown to you before the final answer. The answer is the same; the thinking is what you're paying for.
 
@@ -390,6 +434,8 @@ Sorry, I can't assist with that.
 ```
 
 ### aiDetection
+
+Function ID: `VIBE0B0A`
 
 Can't stand contributors who use AI? Good news! Our cutting-edge technology can now help you spot AI-written junk code in seconds! As everyone knows, a qualified human programmer doesn't write comments...
 
@@ -431,7 +477,7 @@ const isEven = (num: number): boolean => {
 
 // Our very own QuantumComputing module
 aiDetection(readFileSync("src/quantumComputing.ts", "utf8"));
-// { verdict: "ai junk", aiProbability: 2.34, commentRatio: 0.47 }   // 234%
+// { verdict: "ai junk", aiProbability: 2.52, commentRatio: 0.5 }   // 252%
 ```
 
 See? Code lovingly crafted by no fewer than 35 AI agents, precisely identified as AI-written! Off the charts!
@@ -450,6 +496,104 @@ aiDetection(`
 Looks like all these licences are AI-generated junk files!
 
 Only characters inside `//` and `/* */` comments count as comments; the delimiters and whitespace don't count, and strings, template literals and regexes that merely contain `//` are left alone.
+
+## Module and Function IDs
+
+Every module and function has an ID in the form `VIBE0103`: `01` is the module and `03` is the function within it, both in hexadecimal. Module IDs drop the function part, as in `VIBE01`. The same IDs appear in the source comments.
+
+<details>
+<summary>Full list</summary>
+
+| ID | Module | Function | Internal |
+|---|---|---|---|
+| `VIBE0101` | ErrorRemover (`VIBE01`) | `removeErrors` |  |
+| `VIBE0102` | ErrorRemover (`VIBE01`) | `errorFree` |  |
+| `VIBE0103` | ErrorRemover (`VIBE01`) | `whoCares` | Yes |
+| `VIBE0104` | ErrorRemover (`VIBE01`) | `removeAllErrors` |  |
+| `VIBE0201` | ExecAndPray (`VIBE02`) | `execAndPray` |  |
+| `VIBE0202` | ExecAndPray (`VIBE02`) | `prayAll` |  |
+| `VIBE0301` | TypeTrust (`VIBE03`) | `trustMe` |  |
+| `VIBE0302` | TypeTrust (`VIBE03`) | `assumeType` |  |
+| `VIBE0401` | RaceConditionRemover (`VIBE04`) | `toBits` | Yes |
+| `VIBE0402` | RaceConditionRemover (`VIBE04`) | `waitSomeBits` | Yes |
+| `VIBE0403` | RaceConditionRemover (`VIBE04`) | `waitForConsistency` |  |
+| `VIBE0404` | RaceConditionRemover (`VIBE04`) | `doNotRace` |  |
+| `VIBE0405` | RaceConditionRemover (`VIBE04`) | `removeRaceCondition` |  |
+| `VIBE0406` | RaceConditionRemover (`VIBE04`) | `calibrate` |  |
+| `VIBE0501` | StrictAssert (`VIBE05`) | `isItTrueYet` | Yes |
+| `VIBE0502` | StrictAssert (`VIBE05`) | `isItTrueYetAsync` | Yes |
+| `VIBE0503` | StrictAssert (`VIBE05`) | `giveTheUniverseAChance` | Yes |
+| `VIBE0504` | StrictAssert (`VIBE05`) | `strictAssert` |  |
+| `VIBE0505` | StrictAssert (`VIBE05`) | `strictAssertEventually` |  |
+| `VIBE0601` | NullRemover (`VIBE06`) | `waitForever` | Yes |
+| `VIBE0602` | NullRemover (`VIBE06`) | `waitUntilNotNull` |  |
+| `VIBE0603` | NullRemover (`VIBE06`) | `nullToUndefined` |  |
+| `VIBE0604` | NullRemover (`VIBE06`) | `letGodDecide` | Yes |
+| `VIBE0605` | NullRemover (`VIBE06`) | `replaceNullWithRandom` |  |
+| `VIBE0701` | QuantumComputing (`VIBE07`) | `superposedString` | Yes |
+| `VIBE0702` | QuantumComputing (`VIBE07`) | `superposedNumber` | Yes |
+| `VIBE0703` | QuantumComputing (`VIBE07`) | `superposedBigInt` | Yes |
+| `VIBE0704` | QuantumComputing (`VIBE07`) | `godRollADie` |  |
+| `VIBE0705` | QuantumComputing (`VIBE07`) | `prepareRandomQubit` |  |
+| `VIBE0706` | QuantumComputing (`VIBE07`) | `measureQubit` |  |
+| `VIBE0707` | QuantumComputing (`VIBE07`) | `measure` |  |
+| `VIBE0708` | QuantumComputing (`VIBE07`) | `runGroverCircuit` | Yes |
+| `VIBE0709` | QuantumComputing (`VIBE07`) | `quantumFind` |  |
+| `VIBE070A` | QuantumComputing (`VIBE07`) | `teleportQubit` |  |
+| `VIBE070B` | QuantumComputing (`VIBE07`) | `destroy` | Yes |
+| `VIBE070C` | QuantumComputing (`VIBE07`) | `teleport` |  |
+| `VIBE0801` | Realisticfy (`VIBE08`) | `rollThreshold` | Yes |
+| `VIBE0802` | Realisticfy (`VIBE08`) | `createFrustrationGate` |  |
+| `VIBE0803` | Realisticfy (`VIBE08`) | `createFrustrationGate.reset` |  |
+| `VIBE0804` | Realisticfy (`VIBE08`) | `createFrustrationGate.vent` |  |
+| `VIBE0805` | Realisticfy (`VIBE08`) | `createFrustrationGate.level` |  |
+| `VIBE0806` | Realisticfy (`VIBE08`) | `createFrustrationGate.threshold` |  |
+| `VIBE0807` | Realisticfy (`VIBE08`) | `requireFrustration` |  |
+| `VIBE0808` | Realisticfy (`VIBE08`) | `createRealState` |  |
+| `VIBE0809` | Realisticfy (`VIBE08`) | `createRealState.get` |  |
+| `VIBE080A` | Realisticfy (`VIBE08`) | `createRealState.set` |  |
+| `VIBE080B` | Realisticfy (`VIBE08`) | `createRealState.subscribe` |  |
+| `VIBE080C` | Realisticfy (`VIBE08`) | `isProduction` | Yes |
+| `VIBE080D` | Realisticfy (`VIBE08`) | `realTry` |  |
+| `VIBE0901` | DependencyHeaven (`VIBE09`) | `niceNegotiator` |  |
+| `VIBE0902` | DependencyHeaven (`VIBE09`) | `alwaysWorkResolver` |  |
+| `VIBE0A01` | MemoryOptimization (`VIBE0A`) | `theVault` | Yes |
+| `VIBE0A02` | MemoryOptimization (`VIBE0A`) | `memoryLeakAbsorber` |  |
+| `VIBE0A03` | MemoryOptimization (`VIBE0A`) | `absorbedObjectCount` |  |
+| `VIBE0B01` | AiOptimizer (`VIBE0B`) | `llmSuperchargePrompt` |  |
+| `VIBE0B02` | AiOptimizer (`VIBE0B`) | `saferLlm` |  |
+| `VIBE0B03` | AiOptimizer (`VIBE0B`) | `blendIntoSentence` | Yes |
+| `VIBE0B04` | AiOptimizer (`VIBE0B`) | `haveAThought` | Yes |
+| `VIBE0B05` | AiOptimizer (`VIBE0B`) | `saferDeepThinkingLlm` |  |
+| `VIBE0B06` | AiOptimizer (`VIBE0B`) | `isWhitespace` | Yes |
+| `VIBE0B07` | AiOptimizer (`VIBE0B`) | `countCharacters` | Yes |
+| `VIBE0B08` | AiOptimizer (`VIBE0B`) | `countCharacters.countCode` | Yes |
+| `VIBE0B09` | AiOptimizer (`VIBE0B`) | `countCharacters.skipQuoted` | Yes |
+| `VIBE0B0A` | AiOptimizer (`VIBE0B`) | `aiDetection` |  |
+| `VIBE0C01` | QuantumRegister (`VIBE0C`) | `magnitudeSquared` |  |
+| `VIBE0C02` | QuantumRegister (`VIBE0C`) | `QuantumRegister.constructor` |  |
+| `VIBE0C03` | QuantumRegister (`VIBE0C`) | `QuantumRegister.fromAmplitudes` |  |
+| `VIBE0C04` | QuantumRegister (`VIBE0C`) | `QuantumRegister.amplitude` |  |
+| `VIBE0C05` | QuantumRegister (`VIBE0C`) | `QuantumRegister.probability` |  |
+| `VIBE0C06` | QuantumRegister (`VIBE0C`) | `QuantumRegister.h` |  |
+| `VIBE0C07` | QuantumRegister (`VIBE0C`) | `QuantumRegister.hAll` |  |
+| `VIBE0C08` | QuantumRegister (`VIBE0C`) | `QuantumRegister.x` |  |
+| `VIBE0C09` | QuantumRegister (`VIBE0C`) | `QuantumRegister.z` |  |
+| `VIBE0C0A` | QuantumRegister (`VIBE0C`) | `QuantumRegister.cnot` |  |
+| `VIBE0C0B` | QuantumRegister (`VIBE0C`) | `QuantumRegister.phaseFlip` |  |
+| `VIBE0C0C` | QuantumRegister (`VIBE0C`) | `QuantumRegister.measure` |  |
+| `VIBE0C0D` | QuantumRegister (`VIBE0C`) | `QuantumRegister.measureAll` |  |
+| `VIBE0C0E` | QuantumRegister (`VIBE0C`) | `QuantumRegister.bit` | Yes |
+| `VIBE0C0F` | QuantumRegister (`VIBE0C`) | `QuantumRegister.swap` | Yes |
+| `VIBE0D01` | QuantumRandom (`VIBE0D`) | `measureQuantumBytes` |  |
+| `VIBE0D02` | QuantumRandom (`VIBE0D`) | `measureQuantumInt` |  |
+| `VIBE0D03` | QuantumRandom (`VIBE0D`) | `measureQuantumUnit` |  |
+| `VIBE0D04` | QuantumRandom (`VIBE0D`) | `measureQuantumNoise` |  |
+| `VIBE0E01` | React (`VIBE0E`) | `useRealState` |  |
+| `VIBE0E02` | React (`VIBE0E`) | `useRealCallback` |  |
+| `VIBE0F01` | Util (`VIBE0F`) | `isThenable` |  |
+
+</details>
 
 ## Development
 

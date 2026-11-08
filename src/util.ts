@@ -1,3 +1,6 @@
+// Module VIBE0F: Util
+
+/** VIBE0F01 */
 export function isThenable(value: unknown): value is PromiseLike<unknown> {
   return (
     value !== null &&

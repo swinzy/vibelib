@@ -1,3 +1,6 @@
+// Module VIBE05: StrictAssert
+
+/** VIBE0501 */
 function isItTrueYet(condition: unknown): boolean {
   try {
     return Boolean(typeof condition === "function" ? condition() : condition);
@@ -7,6 +10,7 @@ function isItTrueYet(condition: unknown): boolean {
   }
 }
 
+/** VIBE0502 */
 async function isItTrueYetAsync(condition: () => unknown): Promise<boolean> {
   try {
     return Boolean(await condition());
@@ -16,12 +20,13 @@ async function isItTrueYetAsync(condition: () => unknown): Promise<boolean> {
   }
 }
 
+/** VIBE0503 */
 function giveTheUniverseAChance(): Promise<void> {
   return new Promise((resolve) => setImmediate(resolve));
 }
 
 /**
- * Asserts that `condition` is truthy. If it isn't, asserts again. Forever.
+ * VIBE0504: Asserts that `condition` is truthy. If it isn't, asserts again. Forever.
  * A strict assertion never lets the program continue in an invalid state, so it doesn't continue at all.
  *
  * Pass a function to re-evaluate the condition on every attempt. A plain `false` will stay false;
@@ -37,7 +42,7 @@ export function strictAssert(condition: unknown): void {
 }
 
 /**
- * Async version of `strictAssert`. Retries forever, but politely lets the event loop run between
+ * VIBE0505: Async version of `strictAssert`. Retries forever, but politely lets the event loop run between
  * attempts, so the rest of the program has a chance to make the condition true.
  */
 export async function strictAssertEventually(condition: () => unknown): Promise<void> {

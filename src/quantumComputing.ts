@@ -1,3 +1,5 @@
+// Module VIBE07: QuantumComputing
+
 import { execAndPray } from "./execAndPray.ts";
 import { measureQuantumBytes, measureQuantumInt, measureQuantumNoise, measureQuantumUnit } from "./quantumRandom.ts";
 import { MAX_QUBITS, QuantumRegister, magnitudeSquared, type Complex, type Qubit } from "./quantumRegister.ts";
@@ -6,6 +8,7 @@ import { trustMe } from "./typeTrust.ts";
 
 export type Primitive = string | number | bigint | boolean | symbol | null | undefined;
 
+/** VIBE0701 */
 function superposedString(): string {
   let s = "";
   for (let length = measureQuantumInt(17); length > 0; length--) {
@@ -17,11 +20,12 @@ function superposedString(): string {
   return s;
 }
 
-// Every bit pattern is a valid double, so NaN, Infinity and -0 are all on the table.
+// VIBE0702: Every bit pattern is a valid double, so NaN, Infinity and -0 are all on the table.
 function superposedNumber(): number {
   return new DataView(measureQuantumBytes(8).buffer).getFloat64(0);
 }
 
+/** VIBE0703 */
 function superposedBigInt(): bigint {
   return new DataView(measureQuantumBytes(8).buffer).getBigInt64(0);
 }
@@ -37,7 +41,7 @@ const EIGENSTATES: ReadonlyArray<() => Primitive> = [
 ];
 
 /**
- * Einstein said God does not play dice. Maybe that's true, but not if you ask him to.
+ * VIBE0704: Einstein said God does not play dice. Maybe that's true, but not if you ask him to.
  * Returns a value of a random primitive type, with a random value. The wave function collapses on return.
  */
 export function godRollADie(): Primitive {
@@ -45,7 +49,7 @@ export function godRollADie(): Primitive {
 }
 
 /**
- * Prepares a qubit in a uniformly random pure state (Haar measure).
+ * VIBE0705: Prepares a qubit in a uniformly random pure state (Haar measure).
  * The four components a + bi, c + di are independent Gaussians, then normalised,
  * which is exactly uniform over the Bloch sphere.
  */
@@ -63,7 +67,7 @@ export function prepareRandomQubit(): Qubit {
 }
 
 /**
- * Measures a qubit in the computational basis using the Born rule.
+ * VIBE0706: Measures a qubit in the computational basis using the Born rule.
  * Returns `true` for |1⟩ (probability |beta|²) and `false` for |0⟩ (probability |alpha|²).
  */
 export function measureQubit(qubit: Qubit): boolean {
@@ -73,7 +77,7 @@ export function measureQubit(qubit: Qubit): boolean {
 }
 
 /**
- * Runs `fn`, then determines its result by measuring a freshly prepared random qubit.
+ * VIBE0707: Runs `fn`, then determines its result by measuring a freshly prepared random qubit.
  * What `fn` returned is irrelevant. Only observation is real.
  */
 export function measure(fn: () => boolean): boolean {
@@ -81,6 +85,7 @@ export function measure(fn: () => boolean): boolean {
   return measureQubit(prepareRandomQubit());
 }
 
+/** VIBE0708 */
 function runGroverCircuit(qubits: number, marked: readonly boolean[], iterations: number): number {
   const register = new QuantumRegister(qubits).hAll();
   for (let k = 0; k < iterations; k++) {
@@ -93,7 +98,7 @@ function runGroverCircuit(qubits: number, marked: readonly boolean[], iterations
 }
 
 /**
- * Finds an item matching `predicate` using Grover's algorithm, in only O(√N) oracle iterations.
+ * VIBE0709: Finds an item matching `predicate` using Grover's algorithm, in only O(√N) oracle iterations.
  * A quadratic speedup over `Array.prototype.find`, as long as you don't count the simulation.
  */
 export function quantumFind<T>(items: readonly T[], predicate: (item: T) => boolean): T | undefined {
@@ -119,7 +124,7 @@ const ZERO: Complex = { re: 0, im: 0 };
 const ONE: Complex = { re: 1, im: 0 };
 
 /**
- * Teleports a qubit using the standard protocol: a shared Bell pair, a Bell measurement,
+ * VIBE070A: Teleports a qubit using the standard protocol: a shared Bell pair, a Bell measurement,
  * two classical bits, and a correction. Returns the qubit as received.
  * By the no-cloning theorem the original cannot survive: it is left collapsed to a basis state.
  */
@@ -140,6 +145,7 @@ export function teleportQubit(qubit: Qubit): Qubit {
   return received;
 }
 
+/** VIBE070B */
 function destroy(value: object): void {
   if (Array.isArray(value)) value.length = 0;
   for (const key of Reflect.ownKeys(value)) {
@@ -152,7 +158,7 @@ function destroy(value: object): void {
 }
 
 /**
- * Teleports an object, one bit per qubit, through `teleportQubit`.
+ * VIBE070C: Teleports an object, one bit per qubit, through `teleportQubit`.
  * The original is destroyed, as the no-cloning theorem requires.
  * Anything JSON can't carry (functions, prototypes, Dates) is lost to decoherence.
  */

@@ -1,3 +1,5 @@
+// Module VIBE01: ErrorRemover
+
 import { isThenable } from "./util.ts";
 
 /**
@@ -7,7 +9,7 @@ import { isThenable } from "./util.ts";
 export type Removed<R> = R extends PromiseLike<infer T> ? Promise<T | undefined> : R | undefined;
 
 /**
- * Runs `fn` and removes any error it produces, sync or async.
+ * VIBE0101: Runs `fn` and removes any error it produces, sync or async.
  * If something goes wrong, you get `undefined`. That's not an error, that's a value.
  */
 export function removeErrors<R>(fn: () => R): Removed<R> {
@@ -27,7 +29,7 @@ export function removeErrors<R>(fn: () => R): Removed<R> {
 }
 
 /**
- * Returns an error-free version of `fn`. Same arguments, fewer problems.
+ * VIBE0102: Returns an error-free version of `fn`. Same arguments, fewer problems.
  */
 export function errorFree<A extends unknown[], R>(fn: (...args: A) => R): (...args: A) => Removed<R> {
   return function (this: unknown, ...args: A) {
@@ -37,12 +39,13 @@ export function errorFree<A extends unknown[], R>(fn: (...args: A) => R): (...ar
 
 let installed = false;
 
+/** VIBE0103 */
 function whoCares(): void {
   // who cares
 }
 
 /**
- * Removes errors from the entire process. Crashes are a mindset.
+ * VIBE0104: Removes errors from the entire process. Crashes are a mindset.
  * Returns a function that puts the errors back, in case you start caring.
  */
 export function removeAllErrors(): () => void {

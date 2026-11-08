@@ -1,3 +1,5 @@
+// Module VIBE0E: React
+
 import { useCallback, useReducer, useRef, useState, useSyncExternalStore } from "react";
 import {
   createFrustrationGate,
@@ -8,7 +10,7 @@ import {
 } from "./realisticfy.ts";
 
 /**
- * Like `useState`, but the setter only takes effect once the user has tried enough times.
+ * VIBE0E01: Like `useState`, but the setter only takes effect once the user has tried enough times.
  * Options are read on the first render only, just like the initial value.
  */
 export function useRealState<T>(
@@ -33,7 +35,7 @@ export function useRealState<T>(
 }
 
 /**
- * Like `useCallback`, but the callback only runs once the user has tried enough times.
+ * VIBE0E02: Like `useCallback`, but the callback only runs once the user has tried enough times.
  * Perfect for submit buttons.
  */
 export function useRealCallback<A extends unknown[], R>(

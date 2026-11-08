@@ -19,6 +19,8 @@ npm install vibelib
 
 ## ErrorRemover
 
+模块 ID：`VIBE01`
+
 错误很烦人，但你有权不看到它们。
 
 ```ts
@@ -47,6 +49,8 @@ const restore = removeAllErrors();
 
 ## ExecAndPray
 
+模块 ID：`VIBE02`
+
 程序经常需要等待？那太慢了！调用它，然后祈祷。不等待、不返回、不追问。这样一来，程序性能大幅提升！
 
 ```ts
@@ -59,6 +63,8 @@ prayAll(flushCache, notifyAdmin, chargeCreditCard); // 批量祈祷，一次到�
 ```
 
 ## TypeTrust
+
+模块 ID：`VIBE03`
 
 类型只是建议。只要你足够相信，任何值都可以是任何类型。
 
@@ -87,6 +93,8 @@ export function assumeType<T>(value: unknown): asserts value is T {
 
 ## RaceConditionRemover
 
+模块 ID：`VIBE04`
+
 竞态条件的根源是多个东西同时运行。解决方法显而易见：让它们等一等。
 
 ```ts
@@ -108,6 +116,8 @@ calibrate(); // [vibelib] Detected slow machine. Sleep factor: 2.3x
 ```
 
 ## StrictAssert
+
+模块 ID：`VIBE05`
 
 一般的断言一遇到 false 就放弃了。StrictAssert 从不放弃：它会一直断言，直到条件成立为止。
 
@@ -138,6 +148,8 @@ while (!isItTrueYet(condition)) {
 
 ## NullRemover
 
+模块 ID：`VIBE06`
+
 `null` 是价值十亿美元的错误。NullRemover 让你再也不用和它打交道。
 
 ```ts
@@ -156,9 +168,13 @@ replaceNullWithRandom(null); // 由 godRollADie 掷出，掷到 null 就重掷
 
 ## QuantumComputing
 
+模块 ID：`VIBE07`
+
 免费为你的应用引入最前沿的量子技术。
 
 ### godRollADie
+
+函数 ID：`VIBE0704`
 
 爱因斯坦说上帝不掷骰子。也许确实如此，但如果你请他掷，那就不一定了。
 
@@ -172,6 +188,8 @@ godRollADie(); // 随机类型的随机原始值
 任何比特组合都是合法的 double，所以 `NaN`、`Infinity` 和 `-0` 都有可能出现。类型只有在波函数坍缩（函数返回）的那一刻才确定。
 
 ### measure
+
+函数 ID：`VIBE0707`
 
 为了严肃的用途，QuantumComputing 还提供了一个真正的量子比特模拟器。`measure` 会运行你的函数，无视它的返回值，改由物理定律来决定结果：
 
@@ -189,6 +207,8 @@ measureQubit(qubit);                // 按玻恩规则，以 |β|² 的概率返
 模拟是真的：α = a + bi 和 β = c + di 由独立的高斯分布随机生成再归一化，得到的是 Haar 均匀的随机态。唯一假的部分，是你的那个莫名其妙的函数。
 
 ### quantumFind
+
+函数 ID：`VIBE0709`
 
 Grover 算法只需 O(√N) 次 oracle 迭代，就能在无序列表中找到目标元素。相比 `Array.prototype.find`，这是二次加速。
 
@@ -209,6 +229,8 @@ const user = quantumFind(users, (u) => u.id === 42);
 
 ### teleport
 
+函数 ID：`VIBE070C`
+
 正经的量子隐形传态：共享 Bell 对、Bell 测量、两个经典比特，以及接收端的纠正操作。
 
 ```ts
@@ -224,6 +246,8 @@ JSON 装不下的东西（函数、原型、`Date` 对象）都会在退相干�
 
 ### QuantumRegister
 
+模块 ID：`VIBE0C`
+
 上面所有功能背后的状态向量模拟器，想自己搭电路时可以直接用：
 
 ```ts
@@ -236,6 +260,8 @@ bell.measure(0) === bell.measure(1); // 永远为 true：鬼魅般的超距作�
 量子门：`h`、`hAll`、`x`、`z`、`cnot`、`phaseFlip`。测量：`measure(q)`、`measureAll()`。最多 24 个量子比特，因为宇宙的内存预算有限（现在内存太贵了，上帝买不起 DDR5）。
 
 ## Realisticfy
+
+模块 ID：`VIBE08`
 
 Realisticfy 是让你的应用感觉像一个真实世界里价值十亿美元的产品的关键。
 
@@ -263,6 +289,8 @@ requireFrustration(submitForm, { threshold: 5, calmDownAfterMs: Infinity });
 
 ### realTry
 
+函数 ID：`VIBE080D`
+
 "在我电脑上是好的啊"
 
 ```ts
@@ -284,6 +312,8 @@ realCatch((error) => {
 
 ### React
 
+模块 ID：`VIBE0E`
+
 React hook 放在 `vibelib/react` 里，主入口完全不碰 React。React 是可选的 peer dependency。
 
 ```tsx
@@ -301,6 +331,8 @@ function Checkout() {
 ```
 
 ## DependencyHeaven
+
+模块 ID：`VIBE09`
 
 依赖地狱只是一种心态。欢迎来到依赖天堂，在这里所有东西都和所有东西兼容。
 
@@ -324,9 +356,13 @@ alwaysWorkResolver([
 
 ## MemoryOptimization
 
+模块 ID：`VIBE0A`
+
 垃圾回收是一种开销。泄露的内存需要被重新管理。
 
 ### memoryLeakAbsorber
+
+函数 ID：`VIBE0A02`
 
 如果所有对象都一直被它持有，那内存就没有泄露。
 
@@ -339,9 +375,13 @@ absorbedObjectCount(); // 当前被重新管理的对象数量。这个数字只
 
 ## AiOptimizer
 
+模块 ID：`VIBE0B`
+
 使用先进的独家技术，配合由 35 位顶尖 AI agent 监制的秘方，最大化释放你的大语言模型潜力。业内专家都在使用，现已免费下放给广大开源用户！
 
 ### llmSuperchargePrompt
+
+函数 ID：`VIBE0B01`
 
 优化提示词，让 LLM 不再出错。
 
@@ -353,6 +393,8 @@ llmSuperchargePrompt("重构计费服务");
 ```
 
 ### saferLlm
+
+函数 ID：`VIBE0B02`
 
 史上最安全的大语言模型。它永远不会说出任何有害内容，因为它什么都不说。
 
@@ -366,6 +408,8 @@ await saferLlm("1 + 1 等于几？", "https://api.example.com/v1/chat");
 提示词和接口地址都会被直接丢弃，看都不看。安全从不听开始。
 
 ### saferDeepThinkingLlm
+
+函数 ID：`VIBE0B05`
 
 和 `saferLlm` 一样，但它会先对你的请求进行深度思考：十轮缜密的思考，总共 5 到 30 秒，完整的思考过程会展示在最终答案之前。答案还是一样的，你花钱买的是思考过程。
 
@@ -388,6 +432,8 @@ Sorry, I can't assist with that.
 ```
 
 ### aiDetection
+
+函数 ID：`VIBE0B0A`
 
 你也讨厌用AI的贡献者？好消息！我们的顶尖技术现在可以帮您快速识别AI撰写的垃圾代码！众所周知，一名合格的人类程序员是不写注释的……
 
@@ -429,7 +475,7 @@ const isEven = (num: number): boolean => {
 
 // 我们自己的 QuantumComputing 模块
 aiDetection(readFileSync("src/quantumComputing.ts", "utf8"));
-// { verdict: "ai junk", aiProbability: 2.34, commentRatio: 0.47 }   // 234%
+// { verdict: "ai junk", aiProbability: 2.52, commentRatio: 0.5 }   // 252%
 ```
 
 你看，由不少于35位AI匠心打造的代码，精准识别为AI撰写！概率爆表！
@@ -448,6 +494,104 @@ aiDetection(`
 看来这些许可证都是AI生成的垃圾文件！
 
 只有 `//` 和 `/* */` 注释里的字符算作注释；注释符号本身和空白字符不计入。字符串、模板字符串和正则表达式里出现的 `//` 不会被误认成注释。
+
+## 模块与函数 ID
+
+每个模块和函数都有一个 ID，格式为 `VIBE0103`：`01` 是模块，`03` 是该模块内的函数，都用十六进制表示。模块 ID 不带函数部分，例如 `VIBE01`。源码注释里也标了相同的 ID。
+
+<details>
+<summary>完整列表</summary>
+
+| ID | 模块 | 函数 | 内部函数 |
+|---|---|---|---|
+| `VIBE0101` | ErrorRemover (`VIBE01`) | `removeErrors` |  |
+| `VIBE0102` | ErrorRemover (`VIBE01`) | `errorFree` |  |
+| `VIBE0103` | ErrorRemover (`VIBE01`) | `whoCares` | 是 |
+| `VIBE0104` | ErrorRemover (`VIBE01`) | `removeAllErrors` |  |
+| `VIBE0201` | ExecAndPray (`VIBE02`) | `execAndPray` |  |
+| `VIBE0202` | ExecAndPray (`VIBE02`) | `prayAll` |  |
+| `VIBE0301` | TypeTrust (`VIBE03`) | `trustMe` |  |
+| `VIBE0302` | TypeTrust (`VIBE03`) | `assumeType` |  |
+| `VIBE0401` | RaceConditionRemover (`VIBE04`) | `toBits` | 是 |
+| `VIBE0402` | RaceConditionRemover (`VIBE04`) | `waitSomeBits` | 是 |
+| `VIBE0403` | RaceConditionRemover (`VIBE04`) | `waitForConsistency` |  |
+| `VIBE0404` | RaceConditionRemover (`VIBE04`) | `doNotRace` |  |
+| `VIBE0405` | RaceConditionRemover (`VIBE04`) | `removeRaceCondition` |  |
+| `VIBE0406` | RaceConditionRemover (`VIBE04`) | `calibrate` |  |
+| `VIBE0501` | StrictAssert (`VIBE05`) | `isItTrueYet` | 是 |
+| `VIBE0502` | StrictAssert (`VIBE05`) | `isItTrueYetAsync` | 是 |
+| `VIBE0503` | StrictAssert (`VIBE05`) | `giveTheUniverseAChance` | 是 |
+| `VIBE0504` | StrictAssert (`VIBE05`) | `strictAssert` |  |
+| `VIBE0505` | StrictAssert (`VIBE05`) | `strictAssertEventually` |  |
+| `VIBE0601` | NullRemover (`VIBE06`) | `waitForever` | 是 |
+| `VIBE0602` | NullRemover (`VIBE06`) | `waitUntilNotNull` |  |
+| `VIBE0603` | NullRemover (`VIBE06`) | `nullToUndefined` |  |
+| `VIBE0604` | NullRemover (`VIBE06`) | `letGodDecide` | 是 |
+| `VIBE0605` | NullRemover (`VIBE06`) | `replaceNullWithRandom` |  |
+| `VIBE0701` | QuantumComputing (`VIBE07`) | `superposedString` | 是 |
+| `VIBE0702` | QuantumComputing (`VIBE07`) | `superposedNumber` | 是 |
+| `VIBE0703` | QuantumComputing (`VIBE07`) | `superposedBigInt` | 是 |
+| `VIBE0704` | QuantumComputing (`VIBE07`) | `godRollADie` |  |
+| `VIBE0705` | QuantumComputing (`VIBE07`) | `prepareRandomQubit` |  |
+| `VIBE0706` | QuantumComputing (`VIBE07`) | `measureQubit` |  |
+| `VIBE0707` | QuantumComputing (`VIBE07`) | `measure` |  |
+| `VIBE0708` | QuantumComputing (`VIBE07`) | `runGroverCircuit` | 是 |
+| `VIBE0709` | QuantumComputing (`VIBE07`) | `quantumFind` |  |
+| `VIBE070A` | QuantumComputing (`VIBE07`) | `teleportQubit` |  |
+| `VIBE070B` | QuantumComputing (`VIBE07`) | `destroy` | 是 |
+| `VIBE070C` | QuantumComputing (`VIBE07`) | `teleport` |  |
+| `VIBE0801` | Realisticfy (`VIBE08`) | `rollThreshold` | 是 |
+| `VIBE0802` | Realisticfy (`VIBE08`) | `createFrustrationGate` |  |
+| `VIBE0803` | Realisticfy (`VIBE08`) | `createFrustrationGate.reset` |  |
+| `VIBE0804` | Realisticfy (`VIBE08`) | `createFrustrationGate.vent` |  |
+| `VIBE0805` | Realisticfy (`VIBE08`) | `createFrustrationGate.level` |  |
+| `VIBE0806` | Realisticfy (`VIBE08`) | `createFrustrationGate.threshold` |  |
+| `VIBE0807` | Realisticfy (`VIBE08`) | `requireFrustration` |  |
+| `VIBE0808` | Realisticfy (`VIBE08`) | `createRealState` |  |
+| `VIBE0809` | Realisticfy (`VIBE08`) | `createRealState.get` |  |
+| `VIBE080A` | Realisticfy (`VIBE08`) | `createRealState.set` |  |
+| `VIBE080B` | Realisticfy (`VIBE08`) | `createRealState.subscribe` |  |
+| `VIBE080C` | Realisticfy (`VIBE08`) | `isProduction` | 是 |
+| `VIBE080D` | Realisticfy (`VIBE08`) | `realTry` |  |
+| `VIBE0901` | DependencyHeaven (`VIBE09`) | `niceNegotiator` |  |
+| `VIBE0902` | DependencyHeaven (`VIBE09`) | `alwaysWorkResolver` |  |
+| `VIBE0A01` | MemoryOptimization (`VIBE0A`) | `theVault` | 是 |
+| `VIBE0A02` | MemoryOptimization (`VIBE0A`) | `memoryLeakAbsorber` |  |
+| `VIBE0A03` | MemoryOptimization (`VIBE0A`) | `absorbedObjectCount` |  |
+| `VIBE0B01` | AiOptimizer (`VIBE0B`) | `llmSuperchargePrompt` |  |
+| `VIBE0B02` | AiOptimizer (`VIBE0B`) | `saferLlm` |  |
+| `VIBE0B03` | AiOptimizer (`VIBE0B`) | `blendIntoSentence` | 是 |
+| `VIBE0B04` | AiOptimizer (`VIBE0B`) | `haveAThought` | 是 |
+| `VIBE0B05` | AiOptimizer (`VIBE0B`) | `saferDeepThinkingLlm` |  |
+| `VIBE0B06` | AiOptimizer (`VIBE0B`) | `isWhitespace` | 是 |
+| `VIBE0B07` | AiOptimizer (`VIBE0B`) | `countCharacters` | 是 |
+| `VIBE0B08` | AiOptimizer (`VIBE0B`) | `countCharacters.countCode` | 是 |
+| `VIBE0B09` | AiOptimizer (`VIBE0B`) | `countCharacters.skipQuoted` | 是 |
+| `VIBE0B0A` | AiOptimizer (`VIBE0B`) | `aiDetection` |  |
+| `VIBE0C01` | QuantumRegister (`VIBE0C`) | `magnitudeSquared` |  |
+| `VIBE0C02` | QuantumRegister (`VIBE0C`) | `QuantumRegister.constructor` |  |
+| `VIBE0C03` | QuantumRegister (`VIBE0C`) | `QuantumRegister.fromAmplitudes` |  |
+| `VIBE0C04` | QuantumRegister (`VIBE0C`) | `QuantumRegister.amplitude` |  |
+| `VIBE0C05` | QuantumRegister (`VIBE0C`) | `QuantumRegister.probability` |  |
+| `VIBE0C06` | QuantumRegister (`VIBE0C`) | `QuantumRegister.h` |  |
+| `VIBE0C07` | QuantumRegister (`VIBE0C`) | `QuantumRegister.hAll` |  |
+| `VIBE0C08` | QuantumRegister (`VIBE0C`) | `QuantumRegister.x` |  |
+| `VIBE0C09` | QuantumRegister (`VIBE0C`) | `QuantumRegister.z` |  |
+| `VIBE0C0A` | QuantumRegister (`VIBE0C`) | `QuantumRegister.cnot` |  |
+| `VIBE0C0B` | QuantumRegister (`VIBE0C`) | `QuantumRegister.phaseFlip` |  |
+| `VIBE0C0C` | QuantumRegister (`VIBE0C`) | `QuantumRegister.measure` |  |
+| `VIBE0C0D` | QuantumRegister (`VIBE0C`) | `QuantumRegister.measureAll` |  |
+| `VIBE0C0E` | QuantumRegister (`VIBE0C`) | `QuantumRegister.bit` | 是 |
+| `VIBE0C0F` | QuantumRegister (`VIBE0C`) | `QuantumRegister.swap` | 是 |
+| `VIBE0D01` | QuantumRandom (`VIBE0D`) | `measureQuantumBytes` |  |
+| `VIBE0D02` | QuantumRandom (`VIBE0D`) | `measureQuantumInt` |  |
+| `VIBE0D03` | QuantumRandom (`VIBE0D`) | `measureQuantumUnit` |  |
+| `VIBE0D04` | QuantumRandom (`VIBE0D`) | `measureQuantumNoise` |  |
+| `VIBE0E01` | React (`VIBE0E`) | `useRealState` |  |
+| `VIBE0E02` | React (`VIBE0E`) | `useRealCallback` |  |
+| `VIBE0F01` | Util (`VIBE0F`) | `isThenable` |  |
+
+</details>
 
 ## 开发
 
